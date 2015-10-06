@@ -14,6 +14,15 @@
     <script src="/js/default.js"></script>
 </head>
 <body>
-    <p>Content goes here</p>
+    <div id="piPivotMenu" data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
+        <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Play' }">
+            <input type="text" />
+        </div>
+
+        <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Highscore' }">
+            TODO: Highscore list comes here
+            <!--<div data-win-control="WinJS.UI.Repeater" data-win-options="{ data: Pi.HighScore, template: select('.highScoreTemplate') }"></div>-->
+        </div>
+    </div>
 </body>
 </html>
