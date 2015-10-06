@@ -16,7 +16,8 @@
 <body>
     <div id="piPivotMenu" data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
         <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Play' }">
-            <input type="text" />
+            <div id="piDigits"></div>
+            <input id="inputDigit" type="number" maxlength="1" size="1" />
         </div>
 
         <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Highscore' }">

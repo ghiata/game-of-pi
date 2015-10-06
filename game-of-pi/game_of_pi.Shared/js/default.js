@@ -6,11 +6,25 @@
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
 
+    var pi = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9];
+
     app.onactivated = function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
+                document.getElementById('inputDigit').addEventListener('keyup', function (evt) {
+                    var currentCorrectDigit = pi.shift();
+                    var enteredDigit = document.getElementById('inputDigit').value;
+                    console.log(currentCorrectDigit, enteredDigit);
+                    if (currentCorrectDigit == enteredDigit) {
+                        document.getElementById('piDigits').innerHTML += currentCorrectDigit;
+                        document.getElementById('inputDigit').value = '';
+                    } else {
+                        pi.unshift(currentCorrectDigit);
+                    }
+                    
+                });
             } else {
                 // TODO: This application was suspended and then terminated.
                 // To create a smooth user experience, restore application state here so that it looks like the app never stopped running.
