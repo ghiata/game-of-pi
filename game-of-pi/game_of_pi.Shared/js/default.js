@@ -13,16 +13,31 @@
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
+
+                var digitPosition = 0;
+                var mistakes = 0;
+
+                document.getElementById('inputDigit').focus();
+
+                document.getElementById('inputDigit').addEventListener('blur', function (evt) {
+                    document.getElementById('inputDigit').focus();
+                })
+
                 document.getElementById('inputDigit').addEventListener('keyup', function (evt) {
-                    var currentCorrectDigit = pi.shift();
-                    var enteredDigit = document.getElementById('inputDigit').value;
-                    console.log(currentCorrectDigit, enteredDigit);
-                    if (currentCorrectDigit == enteredDigit) {
-                        document.getElementById('piDigits').innerHTML += currentCorrectDigit;
-                        document.getElementById('inputDigit').value = '';
+                    var correctDigit = pi[digitPosition];
+                    var inputedDigit = document.getElementById('inputDigit').value;
+                    if (correctDigit == inputedDigit) {
+                        document.getElementById('piDigits').innerHTML += correctDigit;
+                        digitPosition++;
                     } else {
-                        pi.unshift(currentCorrectDigit);
+                        mistakes++;
                     }
+                    if (mistakes >= 3) {
+                        // TODO: game over
+                        var msgBox = new Windows.UI.Popups.MessageDialog('Game Over');
+                        msgBox.showAsync();
+                    }
+                    document.getElementById('inputDigit').value = '';
                     
                 });
             } else {
