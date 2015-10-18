@@ -13,12 +13,32 @@
 
     <!-- game_of_pi.Phone references -->
     <link href="/css/default.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/css/Microsoft.VisualStudio.Blend.Html.Intrinsic.Grid3x3.css" rel="stylesheet" type="text/css">
+
     <script src="/js/default.js"></script>
 </head>
 <body class="phone">
     <div id="piPivotMenu" data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
         <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Play' }">
-            <input id="inputDigit" type="number" maxlength="1" size="1" />
+            <div id="piDigits"></div>
+            <div id="inputDigit">
+                <div class="ms-grid-3x3">
+                    <div class="number one">1</div>
+                    <div class="number two">2</div>
+                    <div class="number three">3</div>
+                    <div class="number four">4</div>
+                    <div class="number five">5</div>
+                    <div class="number six">6</div>
+                    <div class="number seven">7</div>
+                    <div class="number eight">8</div>
+                    <div class="number nine">9</div>
+                </div>
+                <div class="ms-grid-3x3">
+                    <div class="number two">0</div>
+                </div>
+
+            </div>
         </div>
 
         <div class="pivotItem" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Highscore' }">

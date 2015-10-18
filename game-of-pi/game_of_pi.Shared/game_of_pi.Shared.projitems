@@ -6,6 +6,9 @@
     <SharedGUID>8839d815-4c0e-462f-ad4c-576269d2197c</SharedGUID>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)css\animate.css" />
+    <Content Include="$(MSBuildThisFileDirectory)css\default.css" />
+    <Content Include="$(MSBuildThisFileDirectory)css\Microsoft.VisualStudio.Blend.Html.Intrinsic.Grid3x3.css" />
     <Content Include="$(MSBuildThisFileDirectory)js\default.js" />
   </ItemGroup>
 </Project>

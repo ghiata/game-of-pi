@@ -17,29 +17,31 @@
                 var digitPosition = 0;
                 var mistakes = 0;
 
-                document.getElementById('inputDigit').focus();
+                var numbers = document.getElementById('inputDigit').querySelectorAll('.number');
 
-                document.getElementById('inputDigit').addEventListener('blur', function (evt) {
-                    document.getElementById('inputDigit').focus();
-                })
+                for (var i = 0; i < numbers.length; i++) {
+                    // click calls pooFunction
+                    numbers[i].addEventListener('click', function (evt) {
+                        var correctDigit = pi[digitPosition];
+                        var inputedDigit = this.innerText;
 
-                document.getElementById('inputDigit').addEventListener('keyup', function (evt) {
-                    var correctDigit = pi[digitPosition];
-                    var inputedDigit = document.getElementById('inputDigit').value;
-                    if (correctDigit == inputedDigit) {
-                        document.getElementById('piDigits').innerHTML += correctDigit;
-                        digitPosition++;
-                    } else {
-                        mistakes++;
-                    }
-                    if (mistakes >= 3) {
-                        // TODO: game over
-                        var msgBox = new Windows.UI.Popups.MessageDialog('Game Over');
-                        msgBox.showAsync();
-                    }
-                    document.getElementById('inputDigit').value = '';
-                    
-                });
+                        if (correctDigit == inputedDigit) {
+                            document.getElementById('piDigits').innerHTML += correctDigit;
+                            digitPosition++;
+                        } else {
+                            mistakes++;
+                        }
+
+                        if (mistakes >= 3) {
+                            // TODO: game over
+                            var msgBox = new Windows.UI.Popups.MessageDialog('Game Over');
+                            msgBox.showAsync();
+                            mistakes = 0;
+                        }
+                        document.getElementById('inputDigit').value = '';
+
+                    });
+                }
             } else {
                 // TODO: This application was suspended and then terminated.
                 // To create a smooth user experience, restore application state here so that it looks like the app never stopped running.
